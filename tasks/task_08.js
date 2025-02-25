@@ -10,5 +10,13 @@ const Processors = db.processors;
 // подсказка     where :  {cache : { [Op.gte] : 35}}
 
 module.exports = async function () {
-
+       const result = await Processors.findAll({
+                                           where : {
+                                            cache: {[Op.gte] : 35}
+                                           },
+                                         attributes : ['title']
+                                        
+       });
+       const  title =  result.map(item => item.title);
+       return title;
 }
