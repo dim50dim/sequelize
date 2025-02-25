@@ -7,5 +7,12 @@ const Processors = db.processors;
 // Создайте анонимный модуль в данном файле, через ORM Sequelize реализует запрос в базу данных comp таблица processors и возвращает массив кешей процессоров с сокетом AM4
 
 module.exports = async function () {
-
+      const result = await Processors.findAll({
+                 where : {
+                    socket : 'AM4',
+                 },
+                 attributes : ['title'],
+      });
+      const title = result.map(item => item.title);
+      return title;
 }
