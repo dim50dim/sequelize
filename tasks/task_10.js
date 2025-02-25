@@ -7,5 +7,13 @@ const Processors = db.processors;
 // Создайте анонимный модуль в данном файле, через ORM Sequelize реализует запрос в базу данных comp таблица processors и возвращает массив title процессоров, которые имеют 2 и 6 ядра.
 
 module.exports = async function () {
+        const result = await Processors.findAll({
+                             where : {
+                                core : '2',
+                                core : '6',
+                             },
+                            //  attributes : ['title'],
 
+        });
+        return result;
 }
