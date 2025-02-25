@@ -8,12 +8,10 @@ const Processors = db.processors;
 
 module.exports = async function () {
         const result = await Processors.findAll({
-                             where : {
-                                core : '2',
-                                core : '6',
-                             },
-                            //  attributes : ['title'],
+                             where : { core : [2,6]},
+                             attributes : ['title'],
 
         });
-        return result;
+        let title = result.map(item => item.title);
+        return title;
 }
