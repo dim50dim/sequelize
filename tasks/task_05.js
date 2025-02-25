@@ -11,5 +11,5 @@ module.exports = async function () {
          attributes : ['title']
     })
     const title = result.map(item => item.title);
-    return result;
+    return title;
 }

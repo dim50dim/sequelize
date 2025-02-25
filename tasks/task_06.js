@@ -7,5 +7,9 @@ const Processors = db.processors;
 // Создайте анонимный модуль в данном файле, через ORM Sequelize реализует запрос в базу данных comp таблица processors и возвращает title процессора стоимостью 6999.
 
 module.exports = async function () {
-
+        const result = await Processors.findOne({
+                 where : {cost : 6999},
+                 attributes : ['title'],
+        });
+        return result.title;
 }
