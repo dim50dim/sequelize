@@ -10,6 +10,7 @@ module.exports = async function () {
         const result = await Processors.findAll({
                              where : { core : [2,6],
                                 cache : [16,2],
+                                socket: 'AM4'
                              },
 
                              attributes : ['title'],
